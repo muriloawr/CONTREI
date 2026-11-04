@@ -6,27 +6,22 @@ import instagram from '../assets/footer-icon-instagram.svg';
 import linkedin from '../assets/footer-icon-linkedin.svg';
 import vanzak from '../assets/footer-vanzak.svg';
 import socTree from '../assets/footer-soc-tree.webp';
+import { submenu } from '../snippets/menu';
 
+// mesmas seções do menu do topo; itens sem link ([rótulo]) aparecem como texto
 const columns = [
   [
     'Institucional',
     [
-      ['Home', '/'],
-      ['Sobre a Contrei', '/#sobre'],
-      ['Unidades', '/#unidades'],
-      ['Serviços', '/nossos-servicos'],
-    ],
-  ],
-  [
-    'Ajuda',
-    [
-      ['Proposta Comercial', '/#proposta'],
-      ['Credenciamento', '#'],
-      ['Trabalhe Conosco', '#'],
-      ['Ouvidoria', '#'],
+      ['Início', '/'],
+      ['Sobre nós', '#'], // página ainda não existe
+      ['Nossas soluções', '/#solucoes'],
+      ['Nossas unidades', '/#unidades'],
       ['Política de Privacidade', '#'],
     ],
   ],
+  ['Contato', submenu('Contato')],
+  ['Já sou cliente', submenu('Já sou cliente')],
 ];
 
 // no desktop ficam dentro de "Fale Com a Gente"; no mobile, abaixo do acordeão
@@ -55,7 +50,7 @@ export default function Footer() {
                   <summary>{title}</summary>
                   <ul className="footer__list">
                     {links.map(([label, href]) => (
-                      <li key={label}><Link href={href}>{label}</Link></li>
+                      <li key={label}>{href ? <Link href={href}>{label}</Link> : label}</li>
                     ))}
                   </ul>
                 </details>
@@ -63,7 +58,7 @@ export default function Footer() {
               <details className="footer__column">
                 <summary>Fale Com a Gente</summary>
                 <address className="footer__contact">
-                  <p>Minas Gerais: <a href="tel:+553232282252" className="footer__tel">(32) 3228-2252</a></p>
+                  <p>Minas Gerais: <a href="tel:+553132282252" className="footer__tel">(31) 3228-2252</a></p>
                   <p>São Paulo: <a href="tel:+551140811978" className="footer__tel">(11) 4081-1978</a></p>
                   <p>
                     Rio de Janeiro: <a href="tel:+552123912252" className="footer__tel">(21) 2391-2252</a>

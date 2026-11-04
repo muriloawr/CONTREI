@@ -34,6 +34,7 @@
 
 .footer__row {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   gap: 32px;
@@ -59,14 +60,14 @@
 .footer__nav {
   display: flex;
   align-items: flex-start;
-  gap: calc(128 * var(--u));
+  gap: calc(72 * var(--u));
 }
 .footer__accordion { display: contents; }
 
 .footer__column { padding: 5px 0; }
 .footer__column summary {
-  margin-bottom: 15px;
-  font-size: 24px;
+  margin-bottom: 18px;
+  font-size: 22px;
   font-weight: 600;
   line-height: normal;
   text-transform: capitalize;
@@ -83,8 +84,8 @@
 }
 .footer__list,
 .footer__contact {
-  font-size: 20px;
-  line-height: normal;
+  font-size: 18px;
+  line-height: 1.45;
 }
 .footer__contact {
   font-style: normal;
@@ -150,6 +151,14 @@
   No desktop as 3 colunas ficam sempre abertas: o conteúdo de um <details> fechado é forçado a aparecer.
   ponytail: em navegador sem ::details-content as colunas fechadas ficam escondidas; fallback com JS se precisar.
 */
+/* telas até 1679px: 4 colunas com fonte menor para caberem ao lado do logo */
+@media (min-width: 1024px) and (max-width: 1679.98px) {
+  .footer__nav { gap: 40px; }
+  .footer__list,
+  .footer__contact { font-size: 16px; }
+  .footer__column summary { font-size: 20px; }
+}
+
 @media (min-width: 1024px) {
   .footer__column::details-content { content-visibility: visible; }
 }
