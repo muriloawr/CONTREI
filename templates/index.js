@@ -14,6 +14,7 @@ import Contact from '../sections/contact';
 export default function Index() {
   return (
     <>
+      {/* 1. Pioneirismo... */}
       <Hero
         image={medica}
         alt="Médica examinando um paciente com estetoscópio"
@@ -22,16 +23,29 @@ export default function Index() {
         text="Tecnologia e atendimento exclusivo para a gestão completa de Saúde, Ergonomia e Segurança do Trabalho."
         cta={{ href: '#proposta', label: 'Solicitar Proposta' }}
       />
+      {/* 2. Preencher — por enquanto fica a seção "Referência em Minas Gerais" */}
       <About />
-      <Clients />
-      <Banner />
-      <Steps />
-      <Stats />
-      <Benefits />
-      <Differentials />
-      <Seals />
+      {/* 3. Uma clínica credenciada... */}
       <Coverage />
+      {/* 4. Preencher */}
+      {/* 5. Compromisso rigoroso... */}
+      <Seals />
+      {/* 6. Menos burocracia, mais foco estratégico... */}
+      <Benefits />
+      {/* 7. Preencher */}
+      {/* 8. Nossos resultados não aparecem... */}
+      <Differentials />
+      {/* 9. Empresas que escolheram a Contrei */}
+      <Clients />
+      {/* 10. Transforme a burocracia do eSocial */}
+      <Banner />
+      {/* 11. Do diagnóstico ao resultado */}
+      <Steps />
+      {/* 12. Excelência traduzida */}
+      <Stats />
+      {/* 13. Fale com nossos consultores */}
       <Contact />
+      {/* 14. Preencher */}
     </>
   );
 }
