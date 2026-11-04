@@ -7,19 +7,43 @@ import '../assets/section-header.css';
 import logo from '../assets/logo.webp';
 import iconMenu from '../assets/icon-menu.svg';
 
+/*
+  Itens do menu. `href`: link direto; `items`: abre um submenu com [rótulo, link].
+  Submenu sem link no item (`[rótulo]`) aparece como "em breve", sem clique.
+*/
+const menu = [
+  { label: 'Início', href: '/' },
+  { label: 'Sobre nós', href: '#' }, // página ainda não existe
+  { label: 'Nossas soluções', href: '/#solucoes' }, // por enquanto, a seção de soluções da home
+  {
+    label: 'Contato',
+    // provisório: submenus definitivos ainda serão enviados
+    items: [
+      ['Fale com um consultor', '/#contato'],
+      ['Nossas unidades', '/#unidades'],
+    ],
+  },
+  {
+    label: 'Já sou cliente',
+    // provisório: submenus definitivos ainda serão enviados
+    items: [['Em breve']],
+  },
+];
+
 export default function Header() {
   const nav = useRef(null);
-  const servicos = useRef(null);
 
-  // o submenu fecha ao clicar fora dele ou com Esc; escolher um link também fecha o menu mobile
+  // os submenus fecham ao clicar fora deles ou com Esc (abrir um fecha o outro); escolher um link também fecha o menu mobile
   useEffect(() => {
+    const dropdowns = () => nav.current.querySelectorAll('.header__dropdown');
     const onClick = (e) => {
-      if (servicos.current.firstChild.contains(e.target)) return; // o próprio "Serviços" abre e fecha
-      servicos.current.open = false;
+      dropdowns().forEach((d) => {
+        if (!d.firstChild.contains(e.target)) d.open = false; // o próprio título abre e fecha
+      });
       if (e.target.closest('.header__nav a') && nav.current.matches(':popover-open')) nav.current.hidePopover();
     };
     const onKeyDown = (e) => {
-      if (e.key === 'Escape') servicos.current.open = false;
+      if (e.key === 'Escape') dropdowns().forEach((d) => (d.open = false));
     };
     document.addEventListener('click', onClick);
     document.addEventListener('keydown', onKeyDown);
@@ -38,19 +62,34 @@ export default function Header() {
         <img src={iconMenu.src} alt="" />
       </button>
       <nav ref={nav} id="menu" popover="auto" className="header__nav">
-        <details ref={servicos} className="header__dropdown">
-          <summary>Serviços</summary>
-          <div className="header__submenu">
-            <Link href="/nossos-servicos">Nossos Serviços</Link>
-            <Link href="/tecnologia">Tecnologia</Link>
-            <Link href="/consultoria">Consultoria</Link>
-            <Link href="/gestao">Gestão</Link>
-            <Link href="/saude">Saúde</Link>
-          </div>
-        </details>
         {/* com "/" na frente as âncoras funcionam também a partir das outras páginas */}
-        <a href="/#contato">Contato</a>
-        <a href="/#unidades">Unidades</a>
+        {menu.map((m) =>
+          m.items ? (
+            <details key={m.label} className="header__dropdown">
+              <summary>
+                {m.label}
+                <span className="header__chevron" aria-hidden="true" />
+              </summary>
+              <div className="header__submenu">
+                {m.items.map(([label, href]) =>
+                  href ? (
+                    <Link key={label} href={href}>
+                      {label}
+                    </Link>
+                  ) : (
+                    <span key={label} className="header__soon">
+                      {label}
+                    </span>
+                  ),
+                )}
+              </div>
+            </details>
+          ) : (
+            <Link key={m.label} href={m.href}>
+              {m.label}
+            </Link>
+          ),
+        )}
         <a href="/#proposta" className="header__cta">Solicitar Proposta</a>
       </nav>
     </header>

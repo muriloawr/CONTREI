@@ -69,7 +69,7 @@ export default function Categories() {
   const state = (i) => (i === active ? ' is-active' : '');
 
   return (
-    <section className="categories">
+    <section id="solucoes" className="categories">
       <div className="categories__inner">
         <div className="categories__photos">
           {categories.map((c, i) => (

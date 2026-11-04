@@ -59,12 +59,25 @@
   color: #fff;
 }
 
-/* ponytail: o submenu de Serviços não existe no Figma; painel simples no estilo dos cards */
+/* ponytail: os submenus não existem no Figma; painel simples no estilo dos cards */
 .header__dropdown { position: relative; }
 .header__dropdown summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   list-style: none;
   cursor: pointer;
 }
+/* seta para baixo indicando submenu; vira para cima com ele aberto */
+.header__chevron {
+  width: 6px;
+  height: 11px;
+  background: currentColor;
+  mask: url("./icon-chevron.svg") 0 0 / 100% 100% no-repeat;
+  rotate: 90deg;
+  transition: rotate 0.2s;
+}
+.header__dropdown[open] .header__chevron { rotate: -90deg; }
 .header__dropdown summary::-webkit-details-marker { display: none; }
 
 .header__submenu {
@@ -84,6 +97,21 @@
   border-radius: 8px;
 }
 .header__submenu a:hover { background: var(--color-surface); }
+.header__submenu .header__soon {
+  padding: 8px;
+  color: rgb(57 54 104 / 0.5);
+  font-size: 16px;
+  white-space: nowrap;
+}
+.header__nav a:not(.header__cta):hover,
+.header__nav summary:hover { color: var(--color-accent); }
+
+/* telas de notebook: 6 itens não cabem com a fonte de 20 */
+@media (min-width: 1024px) and (max-width: 1439.98px) {
+  .header__nav { gap: 24px; }
+  .header__nav a,
+  .header__nav summary { font-size: 17px; }
+}
 
 @media (max-width: 1023.98px) {
   .header { padding: 16px; }
@@ -112,8 +140,9 @@
   .header__nav a { font-size: 20px; }
   .header__nav .header__cta { padding: 13px 28px; }
 
-  /* no menu mobile o submenu abre logo abaixo de "Serviços" */
+  /* no menu mobile o submenu abre logo abaixo do título */
   .header__dropdown { text-align: center; }
+  .header__dropdown summary { justify-content: center; }
   .header__submenu {
     position: static;
     gap: 12px;
