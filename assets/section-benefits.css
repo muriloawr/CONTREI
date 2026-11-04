@@ -111,6 +111,16 @@
 .benefits__icon-img--bi { left: 0; top: 0; width: 100%; height: 100%; }
 .benefits__icon-img--faturamento { left: 19.84%; top: 2.66%; width: 60.47%; height: 94.53%; }
 
+/* ícones do banner "colaboradores": o SVG já vem no quadro de 32 do Figma */
+.benefits__icon-img--local,
+.benefits__icon-img--atendimento,
+.benefits__icon-img--ergonomia,
+.benefits__icon-img--integridade { left: 0; top: 0; width: 100%; height: 100%; }
+
+/* banner "colaboradores": foto 21px mais à esquerda e título mais largo (2 linhas como no Figma) */
+.benefits--colaboradores .benefits__photo { left: calc(676 * var(--u)); }
+.benefits--colaboradores .benefits__heading { width: 680px; }
+
 .benefits__text {
   margin: 0;
   font-size: 16px;
@@ -179,6 +189,7 @@
     padding: 0 32px;
     text-align: center;
   }
+  .benefits--colaboradores .benefits__heading { width: 393px; }
   .benefits__eyebrow { font-size: 14px; }
   .benefits__title { font-size: 24px; }
 

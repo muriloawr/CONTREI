@@ -36,7 +36,8 @@ export default function Index() {
       <Seals />
       {/* 6. Menos burocracia, mais foco estratégico... */}
       <Benefits />
-      {/* 7. Preencher */}
+      {/* 7. Cuidado humano que chega onde o trabalho acontece */}
+      <Benefits banner="colaboradores" />
       {/* 8. Nossos resultados não aparecem... */}
       <Differentials />
       {/* 9. Empresas que escolheram a Contrei */}
