@@ -12,6 +12,36 @@ import Seals from '../sections/seals';
 import Coverage from '../sections/coverage';
 import Contact from '../sections/contact';
 import Units from '../sections/units';
+import Faq from '../sections/faq';
+
+// EXEMPLO: perguntas e respostas provisórias, até chegarem os textos definitivos
+const faq = [
+  {
+    question: 'Quais serviços a Contrei oferece?',
+    answer:
+      'Atuamos em quatro frentes integradas: Gestão Documental & Legal (PGR, PCMSO, LTCAT e eSocial), Saúde Ocupacional (exames, ASO e ergonomia), Tecnologia & Dados (plataforma BI e indicadores de SST) e Consultoria, Perícias & Atendimento.',
+  },
+  {
+    question: 'A Contrei atende empresas com filiais em outros estados?',
+    answer:
+      'Sim. Além das unidades próprias em Minas Gerais, São Paulo e Rio de Janeiro, contamos com mais de 2.500 clínicas credenciadas em todo o Brasil, com faturamento único e centralizado para todas as suas filiais.',
+  },
+  {
+    question: 'Como funciona o agendamento de exames ocupacionais?',
+    answer:
+      'Sua equipe solicita o exame pelos nossos canais e o colaborador é encaminhado para a clínica mais próxima da residência ou do posto de trabalho. O ASO e os resultados ficam disponíveis na plataforma.',
+  },
+  {
+    question: 'A Contrei faz o envio dos eventos de SST ao eSocial?',
+    answer:
+      'Sim. Transmitimos os eventos S-2210, S-2220 e S-2240 dentro dos prazos e acompanhamos cada retorno, evitando multas por atraso ou omissão.',
+  },
+  {
+    question: 'Como solicito uma proposta para a minha empresa?',
+    answer:
+      'Basta clicar em "Solicitar Proposta" ou falar com um dos nossos consultores. Antes de apresentar a proposta, fazemos um diagnóstico dos setores e riscos da sua operação.',
+  },
+];
 
 export default function Index() {
   return (
@@ -48,7 +78,13 @@ export default function Index() {
       <Stats />
       {/* 13. Fale com nossos consultores */}
       <Contact />
-      {/* 14. Preencher */}
+      {/* 14. Dúvidas frequentes */}
+      <Faq
+        eyebrow="Dúvidas Frequentes"
+        title="Perguntas frequentes[d] sobre a Contrei"
+        text="Reunimos as dúvidas mais comuns[d] de RHs e gestores sobre a gestão[d] de Saúde e Segurança do Trabalho."
+        items={faq}
+      />
     </>
   );
 }

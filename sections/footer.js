@@ -1,13 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import '../assets/section-footer.css';
-import lines from '../snippets/lines';
 import logo from '../assets/logo.webp';
 import instagram from '../assets/footer-icon-instagram.svg';
 import linkedin from '../assets/footer-icon-linkedin.svg';
 import vanzak from '../assets/footer-vanzak.svg';
-import arrow from '../assets/footer-arrow.svg';
-import buttonMobile from '../assets/footer-button-mobile.svg';
 
 const columns = [
   [
@@ -44,27 +41,6 @@ function Socials({ className }) {
 export default function Footer() {
   return (
     <>
-      <section className="newsletter">
-        <div className="newsletter__about">
-          <div className="newsletter__heading">
-            <span className="newsletter__icon" aria-hidden="true" />
-            <h2 className="newsletter__title">Assine nossa Newsletter</h2>
-          </div>
-          <p className="newsletter__text">
-            {lines('Receba mais novidades e conteúdos[m] exclusivos que vão[d] fazer sua empresa[m] ser muito mais segura e saúdavel.')}
-          </p>
-        </div>
-        {/* ponytail: sem endpoint definido, o envio ainda não é tratado */}
-        <form className="newsletter__form">
-          <input type="email" name="email" required placeholder="E-mail" aria-label="E-mail" className="newsletter__input" />
-          <button type="submit" className="newsletter__button" aria-label="Assinar">
-            <span className="newsletter__label">Assinar</span>
-            <img src={arrow.src} alt="" className="newsletter__arrow" />
-            <img src={buttonMobile.src} alt="" className="newsletter__art" />
-          </button>
-        </form>
-      </section>
-
       <footer className="footer">
         <div className="footer__shape" aria-hidden="true" />
         <div className="footer__row">
