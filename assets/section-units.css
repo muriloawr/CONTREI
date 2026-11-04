@@ -91,8 +91,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* 32px mínimos até o botão */
-  margin: 20px 0 32px;
+  margin: 0;
   padding: 0;
   list-style: none;
   font-size: 16px;
@@ -110,6 +109,36 @@
   overflow-wrap: anywhere;
 }
 .units__info a:hover { color: var(--color-accent); }
+
+/* contatos principais + "Ver mais contatos"; 32px mínimos até o botão do Maps */
+.units__contacts { margin: 20px 0 32px; }
+
+.units__more { margin-top: 12px; }
+.units__more summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-accent);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.units__more summary::-webkit-details-marker { display: none; }
+.units__more summary:hover { text-decoration: underline; }
+.units__more-close,
+.units__more[open] .units__more-open { display: none; }
+.units__more[open] .units__more-close { display: inline; }
+.units__more-chevron {
+  width: 7.636px;
+  height: 14.224px;
+  background: currentColor;
+  mask: url("./icon-chevron.svg") 0 0 / 100% 100% no-repeat;
+  rotate: 90deg;
+  transition: rotate 0.2s;
+}
+.units__more[open] .units__more-chevron { rotate: -90deg; }
+.units__more > .units__info { margin-top: 14px; }
 
 /* telefone, WhatsApp e nome do setor em destaque; o e-mail fica no peso normal */
 .units__strong { font-weight: 600; }
@@ -173,7 +202,9 @@
   .units__body { padding: 20px; }
   .units__name { font-size: 20px; }
   .units__address { margin-top: 8px; font-size: 14px; }
-  .units__info { gap: 8px; margin: 16px 0 24px; font-size: 14px; }
+  .units__contacts { margin: 16px 0 24px; }
+  .units__info { gap: 8px; font-size: 14px; }
+  .units__more summary { font-size: 13px; }
   .units__info img { width: 20px; height: 20px; }
   .units__info .units__label { font-size: 13px; }
 }

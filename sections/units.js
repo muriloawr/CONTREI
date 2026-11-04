@@ -2,8 +2,8 @@ import Image from 'next/image';
 import '../assets/section-units.css';
 import Slider from '../snippets/slider';
 import fotoSede from '../assets/units-sede.webp';
-import fotoBh1 from '../assets/units-bh-1.webp';
-import fotoBh2 from '../assets/units-bh-2.webp';
+import fotoCentro from '../assets/units-centro.webp';
+import fotoLourdes from '../assets/units-lourdes.webp';
 import fotoContagem from '../assets/units-contagem.webp';
 import fotoBetim from '../assets/units-betim.webp';
 import fotoMontesClaros from '../assets/units-montes-claros.webp';
@@ -21,6 +21,7 @@ import setaMobile from '../assets/icon-arrow-mobile.svg';
   - { email: 'x@contrei.com' }                   e-mail
   - { dept: 'Comercial', phone, email }          setor: nome e telefone em negrito, e-mail embaixo
   - { label: 'Agendamento de Exames:' }          subtítulo de um grupo de contatos
+  `contacts` aparece sempre (telefone, WhatsApp e um e-mail); `more` fica escondido em "Ver mais contatos".
   `photo` é opcional: sem foto, o card mostra o símbolo da Contrei no lugar.
 */
 const units = [
@@ -28,8 +29,8 @@ const units = [
     name: 'Sede Administrativa',
     photo: fotoSede,
     address: ['Rua Gonçalves Dias, 229', 'Bairro Funcionários', 'Belo Horizonte/MG'],
-    contacts: [
-      { phone: '(31) 3228-2250' },
+    contacts: [{ phone: '(31) 3228-2250' }, { email: 'comercial@contrei.com' }],
+    more: [
       { dept: 'Comercial', phone: '(31) 3228-2252', email: 'comercial@contrei.com' },
       { dept: 'Engenharia', phone: '(31) 3228-2256', email: 'engenharia@contrei.com' },
       { dept: 'Ergonomia', phone: '(31) 3228-2220', email: 'ergonomia@contrei.com' },
@@ -38,8 +39,8 @@ const units = [
     ],
   },
   {
-    name: 'Clínica BH 1',
-    photo: fotoBh1,
+    name: 'Clínica Centro',
+    photo: fotoCentro,
     address: ['Rua dos Carijós, 244 –', '5º, 6º e 9º andares', 'Bairro Centro – BH/MG'],
     contacts: [
       { label: 'Agendamento de Exames:' },
@@ -49,11 +50,11 @@ const units = [
     ],
   },
   {
-    name: 'Clínica BH 2',
-    photo: fotoBh2,
+    name: 'Clínica Lourdes',
+    photo: fotoLourdes,
     address: ['Rua Bernardo Guimarães, 1587 –', 'Bairro Lourdes – BH/MG'],
-    contacts: [
-      { phone: '(31) 3228-2250', ext: 'Ramal 2280' },
+    contacts: [{ phone: '(31) 3228-2250', ext: 'Ramal 2280' }, { email: 'comercial01@contrei.com' }],
+    more: [
       { dept: 'Comercial', phone: '(31) 3228-2276', email: 'comercial01@contrei.com' },
       { dept: 'Gestão de processos e qualidade', phone: '(31) 98490-3906', email: 'projetos03@contrei.com' },
       { dept: 'E-social', phone: '(31) 3228-2224', email: 'soc@contrei.com' },
@@ -91,8 +92,8 @@ const units = [
       { phone: '(38) 3224-7461' },
       { whatsapp: '(38) 98406-5266' },
       { email: 'gerenciaengenhariamoc@contrei.com' },
-      { email: 'gerenciamedicinamoc@contrei.com' },
     ],
+    more: [{ email: 'gerenciamedicinamoc@contrei.com' }],
   },
   {
     name: 'Unidade São Paulo',
@@ -179,11 +180,27 @@ export default function Units() {
                   </span>
                 ))}
               </p>
-              <ul className="units__info">
-                {u.contacts.map((c, i) => (
-                  <Contact key={i} c={c} />
-                ))}
-              </ul>
+              <div className="units__contacts">
+                <ul className="units__info">
+                  {u.contacts.map((c, i) => (
+                    <Contact key={i} c={c} />
+                  ))}
+                </ul>
+                {u.more && (
+                  <details className="units__more">
+                    <summary>
+                      <span className="units__more-open">Ver mais contatos</span>
+                      <span className="units__more-close">Ver menos</span>
+                      <span className="units__more-chevron" aria-hidden="true" />
+                    </summary>
+                    <ul className="units__info">
+                      {u.more.map((c, i) => (
+                        <Contact key={i} c={c} />
+                      ))}
+                    </ul>
+                  </details>
+                )}
+              </div>
               <a href={mapsUrl(u.address)} target="_blank" rel="noopener noreferrer" className="button units__maps">
                 Abrir no Google Maps
                 <img src={setaDesktop.src} alt="" className="button__arrow button__arrow--desktop" />
