@@ -84,6 +84,7 @@ export default function Index() {
         title="Perguntas frequentes[d] sobre a Contrei"
         text="Reunimos as dúvidas mais comuns[d] de RHs e gestores sobre a gestão[d] de Saúde e Segurança do Trabalho."
         items={faq}
+        variant="light"
       />
     </>
   );

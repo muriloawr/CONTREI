@@ -3,9 +3,10 @@ import lines from '../snippets/lines';
 
 // Figma 504:3769. Accordion nativo (<details>, como o do footer): o 1º item vem aberto; `items`: [{ question, answer }].
 // Textos aceitam as quebras de lines().
-export default function Faq({ eyebrow, title, text, items }) {
+// `variant="light"`: fundo azul bem claro e textos escuros (usado na home)
+export default function Faq({ eyebrow, title, text, items, variant }) {
   return (
-    <section className="faq">
+    <section className={variant ? `faq faq--${variant}` : 'faq'}>
       <div className="faq__heading">
         <div>
           <p className="eyebrow">{eyebrow}</p>

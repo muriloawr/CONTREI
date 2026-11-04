@@ -67,6 +67,16 @@
   line-height: normal;
 }
 
+/* versão clara (home): mesmo layout, fundo --color-surface, textos e linhas no azul da marca */
+.faq--light {
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+.faq--light .eyebrow { color: rgb(57 54 104 / 0.7); }
+.faq--light .faq__item + .faq__item { border-top-color: rgb(57 54 104 / 0.15); }
+.faq--light .faq__question::after { color: var(--color-accent); }
+.faq--light .faq__answer { color: rgb(57 54 104 / 0.8); }
+
 @media (max-width: 1023.98px) {
   .faq {
     flex-direction: column;
