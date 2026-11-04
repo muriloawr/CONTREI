@@ -79,11 +79,11 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer__final">
-          <div className="footer__legal">
-            <p className="footer__copy">Contrei © 16.839.755/0001-14</p>
+          <p className="footer__copy">Contrei © 16.839.755/0001-14</p>
+          <div className="footer__badges">
             <Image src={socTree} alt="Selo SOC Tree – Contrei, CNPJ 16.839.755/0001-14" sizes="144px" className="footer__seal" />
+            <img src={vanzak.src} alt="Vanzak Labs" className="footer__vanzak" />
           </div>
-          <img src={vanzak.src} alt="Vanzak Labs" className="footer__vanzak" />
         </div>
       </footer>
     </>

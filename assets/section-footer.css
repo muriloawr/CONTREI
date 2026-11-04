@@ -5,6 +5,8 @@
   flex-direction: column;
   gap: calc(32 * var(--u));
   padding: calc(64 * var(--u)) calc(50% - 760 * var(--u));
+  /* espaço extra embaixo para o botão flutuante do WhatsApp (68px a 32px da base) não cobrir os selos */
+  padding-bottom: max(calc(64 * var(--u)), 116px);
   overflow: hidden;
   border-top: 4px solid var(--color-accent);
   background: #fff;
@@ -132,8 +134,8 @@
 }
 .footer__vanzak { display: block; }
 
-/* CNPJ + selo SOC Tree lado a lado */
-.footer__legal {
+/* selo SOC Tree ao lado do selo da Vanzak, à direita */
+.footer__badges {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -155,7 +157,8 @@
 @media (max-width: 1023.98px) {
   .footer {
     gap: 32px;
-    padding: 32px 0;
+    /* embaixo: espaço para o botão flutuante do WhatsApp (58px a 24px da base) */
+    padding: 32px 0 100px;
     border-top-width: 2px;
   }
   .footer__shape {
@@ -237,9 +240,6 @@
   }
   .footer__final::before { display: none; }
   .footer__copy { font-size: 16px; }
-  .footer__legal {
-    flex-direction: column;
-    gap: 16px;
-  }
+  .footer__badges { justify-content: center; }
   .footer__seal { height: 48px; }
 }
