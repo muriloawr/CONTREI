@@ -81,6 +81,7 @@
 
 .units__address {
   margin: 12px 0 0;
+  color: rgb(57 54 104 / 0.7);
   font-size: 18px;
   line-height: 1.35;
 }
@@ -108,6 +109,33 @@
   overflow-wrap: anywhere;
 }
 .units__info a:hover { color: var(--color-accent); }
+
+/* telefone, WhatsApp e nome do setor em destaque; o e-mail fica no peso normal */
+.units__strong { font-weight: 600; }
+.units__info .units__label {
+  margin-bottom: -4px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.units__info .units__dept {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.units__dept a:not(.units__strong) { color: rgb(57 54 104 / 0.8); }
+
+/* unidade ainda sem foto: símbolo da Contrei sobre o fundo azul claro */
+.units__photo--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e3f6fd, #c4ebfa);
+}
+.units__photo--empty img {
+  width: 22%;
+  height: auto;
+  opacity: 0.9;
+}
 
 /* fica no pé do card, à direita, mesmo quando os textos têm alturas diferentes */
 .units__maps {
@@ -145,6 +173,7 @@
   .units__address { margin-top: 8px; font-size: 14px; }
   .units__info { gap: 8px; margin: 16px 0 24px; font-size: 14px; }
   .units__info img { width: 20px; height: 20px; }
+  .units__info .units__label { font-size: 13px; }
 }
 
 @media (max-width: 639.98px) {
