@@ -57,11 +57,12 @@
 
 .units__photo {
   display: block;
+  /* começa logo abaixo da faixa em degradê, sem ficar coberta por ela */
+  margin-top: calc(10 * var(--u));
   width: 100%;
   height: auto;
   aspect-ratio: 781 / 355;
   object-fit: cover;
-  object-position: center 70%;
 }
 
 .units__body {
@@ -167,6 +168,7 @@
 
   .units__card { border-radius: 10px; }
   .units__card::before { height: 6px; }
+  .units__photo { margin-top: 6px; }
 
   .units__body { padding: 20px; }
   .units__name { font-size: 20px; }

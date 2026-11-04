@@ -1,8 +1,12 @@
 import Image from 'next/image';
 import '../assets/section-units.css';
 import Slider from '../snippets/slider';
-import fotoSaoPaulo from '../assets/units-sao-paulo.webp';
-import fotoRioDeJaneiro from '../assets/units-rio-de-janeiro.webp';
+import fotoSede from '../assets/units-sede.webp';
+import fotoBh1 from '../assets/units-bh-1.webp';
+import fotoBh2 from '../assets/units-bh-2.webp';
+import fotoContagem from '../assets/units-contagem.webp';
+import fotoBetim from '../assets/units-betim.webp';
+import fotoMontesClaros from '../assets/units-montes-claros.webp';
 import logo from '../assets/coverage-logo.svg';
 import iconPhone from '../assets/units-icon-phone.svg';
 import iconWhatsapp from '../assets/units-icon-whatsapp.svg';
@@ -22,6 +26,7 @@ import setaMobile from '../assets/icon-arrow-mobile.svg';
 const units = [
   {
     name: 'Sede Administrativa',
+    photo: fotoSede,
     address: ['Rua Gonçalves Dias, 229', 'Bairro Funcionários', 'Belo Horizonte/MG'],
     contacts: [
       { phone: '(31) 3228-2250' },
@@ -34,6 +39,7 @@ const units = [
   },
   {
     name: 'Clínica BH 1',
+    photo: fotoBh1,
     address: ['Rua dos Carijós, 244 –', '5º, 6º e 9º andares', 'Bairro Centro – BH/MG'],
     contacts: [
       { label: 'Agendamento de Exames:' },
@@ -44,6 +50,7 @@ const units = [
   },
   {
     name: 'Clínica BH 2',
+    photo: fotoBh2,
     address: ['Rua Bernardo Guimarães, 1587 –', 'Bairro Lourdes – BH/MG'],
     contacts: [
       { phone: '(31) 3228-2250', ext: 'Ramal 2280' },
@@ -55,6 +62,7 @@ const units = [
   },
   {
     name: 'Clínica Contagem',
+    photo: fotoContagem,
     address: ['Av. José Faria da Rocha, 5119', 'Bairro Eldorado', 'Contagem/MG'],
     contacts: [
       { label: 'Agendamento de Exames:' },
@@ -65,6 +73,7 @@ const units = [
   },
   {
     name: 'Clínica Betim',
+    photo: fotoBetim,
     address: ['Av. Marechal Rondon, 28', 'Bairro Brasileia', 'Betim/MG'],
     contacts: [
       { label: 'Agendamento de Exames:' },
@@ -75,6 +84,7 @@ const units = [
   },
   {
     name: 'Unidade Montes Claros',
+    photo: fotoMontesClaros,
     address: ['Rua Carbono, 160 e 168', 'Bairro Vila Brasília', 'Montes Claros/MG'],
     contacts: [
       { label: 'Agendamento de Exames / Comercial:' },
@@ -87,13 +97,11 @@ const units = [
   {
     name: 'Unidade São Paulo',
     address: ['Alameda Santos, 1767/1773 –', 'Cerqueira César – São Paulo/SP'],
-    photo: fotoSaoPaulo,
     contacts: [{ whatsapp: '(11) 4081-1978' }, { email: 'comercial.sp@contrei.com' }],
   },
   {
     name: 'Unidade Rio de Janeiro',
     address: ['R. México, 31 – Sala 703 – Centro –', 'Rio de Janeiro/RJ'],
-    photo: fotoRioDeJaneiro,
     contacts: [{ whatsapp: '(21) 2391-2252' }, { email: 'comercial.rj@contrei.com' }],
   },
 ];
@@ -152,7 +160,7 @@ export default function Units() {
             {u.photo ? (
               <Image
                 src={u.photo}
-                alt={`Fachada da ${u.name}`}
+                alt={`Foto da ${u.name}`}
                 sizes="(min-width: 1024px) 500px, (min-width: 640px) 50vw, 100vw"
                 className="units__photo"
               />
