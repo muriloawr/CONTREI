@@ -132,6 +132,18 @@
 }
 .footer__vanzak { display: block; }
 
+/* CNPJ + selo SOC Tree lado a lado */
+.footer__legal {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.footer__seal {
+  display: block;
+  width: auto;
+  height: 56px;
+}
+
 /*
   No desktop as 3 colunas ficam sempre abertas: o conteúdo de um <details> fechado é forçado a aparecer.
   ponytail: em navegador sem ::details-content as colunas fechadas ficam escondidas; fallback com JS se precisar.
@@ -225,4 +237,9 @@
   }
   .footer__final::before { display: none; }
   .footer__copy { font-size: 16px; }
+  .footer__legal {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .footer__seal { height: 48px; }
 }

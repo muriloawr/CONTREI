@@ -5,6 +5,7 @@ import logo from '../assets/logo.webp';
 import instagram from '../assets/footer-icon-instagram.svg';
 import linkedin from '../assets/footer-icon-linkedin.svg';
 import vanzak from '../assets/footer-vanzak.svg';
+import socTree from '../assets/footer-soc-tree.webp';
 
 const columns = [
   [
@@ -78,7 +79,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer__final">
-          <p className="footer__copy">Contrei © 16.839.755/0001-14</p>
+          <div className="footer__legal">
+            <p className="footer__copy">Contrei © 16.839.755/0001-14</p>
+            <Image src={socTree} alt="Selo SOC Tree – Contrei, CNPJ 16.839.755/0001-14" sizes="144px" className="footer__seal" />
+          </div>
           <img src={vanzak.src} alt="Vanzak Labs" className="footer__vanzak" />
         </div>
       </footer>
