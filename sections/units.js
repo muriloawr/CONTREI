@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import '../assets/section-units.css';
 import Slider from '../snippets/slider';
+import EqualCards from '../snippets/equal-cards';
 import fotoSede from '../assets/units-sede.webp';
 import fotoCentro from '../assets/units-centro.webp';
 import fotoLourdes from '../assets/units-lourdes.webp';
@@ -210,6 +211,7 @@ export default function Units() {
           </article>
         ))}
       </Slider>
+      <EqualCards card=".units__card" />
     </section>
   );
 }

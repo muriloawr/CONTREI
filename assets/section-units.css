@@ -18,6 +18,9 @@
   width: calc(1540 * var(--u));
   padding-bottom: 74px;
 }
+/* cada card tem a altura do conteúdo, com mínimo igual ao maior card fechado (snippets/equal-cards.js):
+   ao abrir "Ver mais contatos" só aquele card cresce */
+.units__slider .slider__track { align-items: flex-start; }
 .units__slider .slider__slide {
   display: flex;
   padding: 0 calc(10 * var(--u));
@@ -41,6 +44,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: var(--card-h, 0);
   overflow: hidden;
   border-radius: calc(10 * var(--u));
   background: var(--color-surface);
