@@ -5,6 +5,7 @@ import iconCustos from '../assets/differentials-icon-custos.svg';
 import iconRendimento from '../assets/differentials-icon-rendimento.svg';
 import iconNormas from '../assets/differentials-icon-normas.svg';
 import iconFinanceiro from '../assets/differentials-icon-financeiro.svg';
+import { WHATSAPP_URL, external } from '../snippets/whatsapp';
 import setaDesktop from '../assets/icon-arrow-desktop.svg';
 import setaMobile from '../assets/icon-arrow-mobile.svg';
 
@@ -40,7 +41,7 @@ export default function Differentials() {
         ))}
       </Slider>
       {/* o botão só existe no Figma mobile */}
-      <a href="#proposta" className="button differentials__cta">
+      <a href={WHATSAPP_URL} {...external} className="button differentials__cta">
         Quero um diagnóstico para a minha empresa
         <img src={setaDesktop.src} alt="" className="button__arrow button__arrow--desktop" />
         <img src={setaMobile.src} alt="" className="button__arrow button__arrow--mobile" />

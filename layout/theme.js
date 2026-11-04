@@ -2,6 +2,7 @@ import { Manrope, DM_Sans } from 'next/font/google';
 import '../assets/base.css';
 import Header from '../sections/header';
 import Footer from '../sections/footer';
+import WhatsappFloat from '../sections/whatsapp-float';
 
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' });
 const dmSans = DM_Sans({ subsets: ['latin'], axes: ['opsz'], variable: '--font-dm-sans' });
@@ -19,6 +20,7 @@ export default function Theme({ children }) {
         <Header />
         <main>{children}</main>
         <Footer />
+        <WhatsappFloat />
       </body>
     </html>
   );

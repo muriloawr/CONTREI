@@ -7,6 +7,7 @@ import iconEsocial from '../assets/steps-icon-esocial.svg';
 import iconAuditoria from '../assets/steps-icon-auditoria.svg';
 import iconPlano from '../assets/steps-icon-plano.svg';
 import iconRede from '../assets/steps-icon-rede.svg';
+import { WHATSAPP_URL, external } from '../snippets/whatsapp';
 import setaDesktop from '../assets/icon-arrow-desktop.svg';
 import setaMobile from '../assets/icon-arrow-mobile.svg';
 import lines from '../snippets/lines';
@@ -55,7 +56,7 @@ export default function Steps() {
             </li>
           ))}
         </ul>
-        <a href="#proposta" className="button steps__cta">
+        <a href={WHATSAPP_URL} {...external} className="button steps__cta">
           Quero um diagnóstico para a minha empresa
           <img src={setaDesktop.src} alt="" className="button__arrow button__arrow--desktop" />
           <img src={setaMobile.src} alt="" className="button__arrow button__arrow--mobile" />

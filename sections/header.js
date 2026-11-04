@@ -6,6 +6,7 @@ import Link from 'next/link';
 import '../assets/section-header.css';
 import logo from '../assets/logo.webp';
 import iconMenu from '../assets/icon-menu.svg';
+import { WHATSAPP_URL, external } from '../snippets/whatsapp';
 
 /*
   Itens do menu. `href`: link direto; `items`: abre um submenu com [rótulo, link].
@@ -104,7 +105,9 @@ export default function Header() {
             </Link>
           ),
         )}
-        <a href="/#proposta" className="header__cta">Solicitar Proposta</a>
+        <a href={WHATSAPP_URL} {...external} className="header__cta">
+          Solicitar Proposta
+        </a>
       </nav>
     </header>
   );

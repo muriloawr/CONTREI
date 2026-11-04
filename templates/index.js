@@ -13,6 +13,7 @@ import Coverage from '../sections/coverage';
 import Contact from '../sections/contact';
 import Units from '../sections/units';
 import Faq from '../sections/faq';
+import { WHATSAPP_URL } from '../snippets/whatsapp';
 
 // EXEMPLO: perguntas e respostas provisórias, até chegarem os textos definitivos
 const faq = [
@@ -53,7 +54,7 @@ export default function Index() {
         sizes="(min-width: 1024px) min(52.3vw, 1004px), 506px"
         title="Pioneirismo na Medicina e Segurança do Trabalho"
         text="Tecnologia e atendimento exclusivo para a gestão completa de Saúde, Ergonomia e Segurança do Trabalho."
-        cta={{ href: '#proposta', label: 'Solicitar Proposta' }}
+        cta={{ href: WHATSAPP_URL, label: 'Solicitar Proposta' }}
       />
       {/* 2. Gestão / Saúde / Tecnologia / Consultoria (mesma seção de Nossos Serviços) */}
       <Categories />
