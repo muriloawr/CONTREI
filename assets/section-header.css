@@ -97,12 +97,6 @@
   border-radius: 8px;
 }
 .header__submenu a:hover { background: var(--color-surface); }
-.header__submenu .header__soon {
-  padding: 8px;
-  color: rgb(57 54 104 / 0.5);
-  font-size: 16px;
-  white-space: nowrap;
-}
 .header__nav a:not(.header__cta):hover,
 .header__nav summary:hover { color: var(--color-accent); }
 
@@ -136,6 +130,9 @@
     gap: 24px;
     padding: 24px 16px;
     background: var(--color-surface);
+    /* com um submenu aberto o menu pode passar da altura da tela: rola por dentro */
+    max-height: calc(100dvh - 80px);
+    overflow-y: auto;
   }
   .header__nav a { font-size: 20px; }
   .header__nav .header__cta { padding: 13px 28px; }

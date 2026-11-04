@@ -9,7 +9,7 @@ import iconMenu from '../assets/icon-menu.svg';
 
 /*
   Itens do menu. `href`: link direto; `items`: abre um submenu com [rótulo, link].
-  Submenu sem link no item (`[rótulo]`) aparece como "em breve", sem clique.
+  Item de submenu sem link (`[rótulo]`) aparece normal, mas ainda não leva a lugar nenhum.
 */
 const menu = [
   { label: 'Início', href: '/' },
@@ -17,16 +17,30 @@ const menu = [
   { label: 'Nossas soluções', href: '/#solucoes' }, // por enquanto, a seção de soluções da home
   {
     label: 'Contato',
-    // provisório: submenus definitivos ainda serão enviados
+    // ainda sem links
     items: [
-      ['Fale com um consultor', '/#contato'],
-      ['Nossas unidades', '/#unidades'],
+      ['Proposta comercial'],
+      ['Credenciamento'],
+      ['Cadastro médico'],
+      ['Trabalhe conosco'],
+      ['Fornecedores'],
+      ['Ouvidoria'],
+      ['Canal de denúncias'],
+      ['Imprensa'],
     ],
   },
   {
     label: 'Já sou cliente',
-    // provisório: submenus definitivos ainda serão enviados
-    items: [['Em breve']],
+    // ainda sem links
+    items: [
+      ['SOC'],
+      ['MAESTRO'],
+      ['Agenda digital'],
+      ['BI - Dashboard'],
+      ['Treinamento online'],
+      ['Solicitação de proposta comercial'],
+      ['Chat com pós-vendas'],
+    ],
   },
 ];
 
@@ -77,9 +91,9 @@ export default function Header() {
                       {label}
                     </Link>
                   ) : (
-                    <span key={label} className="header__soon">
+                    <a key={label} href="#" onClick={(e) => e.preventDefault()}>
                       {label}
-                    </span>
+                    </a>
                   ),
                 )}
               </div>
