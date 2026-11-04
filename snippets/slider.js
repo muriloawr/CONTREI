@@ -6,11 +6,13 @@ import Dots from './dots';
 // slider com rolagem nativa (arrasta no touch); setas e dots só aparecem com mais de uma página.
 // Cards por página: a seção define `--per-view` no CSS do slider (padrão 1, pode mudar por breakpoint);
 // a largura de cada slide e o número de dots seguem esse valor.
-export default function Slider({ className = '', children }) {
+// `autoplay` (ms) passa para o próximo sozinho; o tempo recomeça a cada troca e pausa com o mouse em cima.
+export default function Slider({ className = '', autoplay = 0, children }) {
   const root = useRef(null);
   const track = useRef(null);
   const [active, setActive] = useState(0);
   const [perView, setPerView] = useState(1);
+  const [paused, setPaused] = useState(false);
   const slides = Children.toArray(children);
   const pages = Math.ceil(slides.length / perView);
 
@@ -26,8 +28,19 @@ export default function Slider({ className = '', children }) {
     el.scrollTo({ left: ((i + pages) % pages) * el.clientWidth, behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    if (!autoplay || paused || pages < 2) return;
+    const t = setTimeout(() => go(active + 1), autoplay);
+    return () => clearTimeout(t);
+  }, [autoplay, paused, pages, active]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
-    <div ref={root} className={`slider ${className}`}>
+    <div
+      ref={root}
+      className={`slider ${className}`}
+      onMouseEnter={autoplay ? () => setPaused(true) : undefined}
+      onMouseLeave={autoplay ? () => setPaused(false) : undefined}
+    >
       <div
         ref={track}
         className="slider__track"

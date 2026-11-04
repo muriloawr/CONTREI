@@ -34,10 +34,8 @@ export default function Index() {
       <Units />
       {/* 5. Compromisso rigoroso... */}
       <Seals />
-      {/* 6. Menos burocracia, mais foco estratégico... */}
+      {/* 6 e 7. Carrossel: Menos burocracia... / Cuidado humano que chega onde o trabalho acontece */}
       <Benefits />
-      {/* 7. Cuidado humano que chega onde o trabalho acontece */}
-      <Benefits banner="colaboradores" />
       {/* 8. Nossos resultados não aparecem... */}
       <Differentials />
       {/* 9. Empresas que escolheram a Contrei */}

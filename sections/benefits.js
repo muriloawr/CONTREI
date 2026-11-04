@@ -13,7 +13,7 @@ import iconAtendimento from '../assets/benefits-icon-atendimento.svg';
 import iconErgonomia from '../assets/benefits-icon-ergonomia.svg';
 import iconIntegridade from '../assets/benefits-icon-integridade.svg';
 
-// banners disponíveis: <Benefits banner="rh-juridico" /> ou <Benefits banner="colaboradores" />
+// banners do carrossel, na ordem em que aparecem
 const banners = {
   'rh-juridico': {
     photo: mulher,
@@ -41,33 +41,34 @@ const banners = {
   },
 };
 
-// cada filho do <Slider> é um banner; com mais de um aparecem as setas e os dots
-export default function Benefits({ banner = 'rh-juridico' }) {
-  const b = banners[banner];
+// carrossel com os banners, trocando sozinho a cada 10s (pausa com o mouse em cima)
+export default function Benefits() {
   return (
-    <section className={`benefits benefits--${banner}`}>
-      <Slider className="benefits__slider">
-        <div key={banner} className="benefits__slide">
-          <div className="benefits__photo">
-            <Image src={b.photo} alt={b.alt} sizes="(min-width: 1024px) min(64.9vw, 1246px), 755px" />
+    <section className="benefits">
+      <Slider className="benefits__slider" autoplay={10000}>
+        {Object.entries(banners).map(([key, b]) => (
+          <div key={key} className={`benefits__slide benefits__slide--${key}`}>
+            <div className="benefits__photo">
+              <Image src={b.photo} alt={b.alt} sizes="(min-width: 1024px) min(64.9vw, 1246px), 755px" />
+            </div>
+            <span className="benefits__fade" />
+            <span className="benefits__top" />
+            <div className="benefits__heading">
+              <p className="benefits__eyebrow">{b.eyebrow}</p>
+              <h2 className="benefits__title">{lines(b.title)}</h2>
+            </div>
+            <ul className="benefits__cards">
+              {b.cards.map(([k, icon, text]) => (
+                <li key={k} className="benefits__card">
+                  <span className="benefits__icon">
+                    <img src={icon.src} alt="" className={`benefits__icon-img benefits__icon-img--${k}`} />
+                  </span>
+                  <p className="benefits__text">{lines(text)}</p>
+                </li>
+              ))}
+            </ul>
           </div>
-          <span className="benefits__fade" />
-          <span className="benefits__top" />
-          <div className="benefits__heading">
-            <p className="benefits__eyebrow">{b.eyebrow}</p>
-            <h2 className="benefits__title">{lines(b.title)}</h2>
-          </div>
-          <ul className="benefits__cards">
-            {b.cards.map(([key, icon, text]) => (
-              <li key={key} className="benefits__card">
-                <span className="benefits__icon">
-                  <img src={icon.src} alt="" className={`benefits__icon-img benefits__icon-img--${key}`} />
-                </span>
-                <p className="benefits__text">{lines(text)}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        ))}
       </Slider>
     </section>
   );
