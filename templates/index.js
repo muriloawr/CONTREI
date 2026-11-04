@@ -11,6 +11,7 @@ import Differentials from '../sections/differentials';
 import Seals from '../sections/seals';
 import Coverage from '../sections/coverage';
 import Contact from '../sections/contact';
+import Units from '../sections/units';
 
 export default function Index() {
   return (
@@ -29,7 +30,8 @@ export default function Index() {
       {/* Oculta por enquanto (não está na nova ordem): <About /> — "Referência em Minas Gerais" */}
       {/* 3. Uma clínica credenciada... */}
       <Coverage />
-      {/* 4. Preencher */}
+      {/* 4. Nossas unidades próprias (carrossel) */}
+      <Units />
       {/* 5. Compromisso rigoroso... */}
       <Seals />
       {/* 6. Menos burocracia, mais foco estratégico... */}

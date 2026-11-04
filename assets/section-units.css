@@ -1,0 +1,152 @@
+/*
+  Unidades próprias: carrossel de cards (foto + endereço + contatos + botão do Maps).
+  Cards por página em --per-view: 3 no desktop largo, 2 entre 640px e 1279px, 1 no celular.
+*/
+.units {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(48 * var(--u));
+  padding: calc(80 * var(--u)) 0;
+}
+
+.units__title { text-align: center; }
+
+/* 1520 de conteúdo + 10 de cada lado, que é o respiro interno de cada slide (gap de 20 entre os cards) */
+.units__slider {
+  --per-view: 3;
+  width: calc(1540 * var(--u));
+  padding-bottom: 74px;
+}
+.units__slider .slider__slide {
+  display: flex;
+  padding: 0 calc(10 * var(--u));
+}
+
+/* setas e dots numa linha abaixo dos cards */
+.units__slider .slider__dots { bottom: 16px; }
+.units__slider .slider__arrow {
+  top: auto;
+  bottom: 0;
+  translate: none;
+  color: var(--color-primary);
+  background: transparent;
+}
+.units__slider .slider__arrow--prev { left: auto; right: calc(50% + 48px); }
+.units__slider .slider__arrow--next { right: auto; left: calc(50% + 48px); }
+.units .dots__dot:not([aria-current='true']) { background: rgb(57 54 104 / 0.2); }
+
+.units__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  border-radius: calc(10 * var(--u));
+  background: var(--color-surface);
+}
+/* faixa em degradê no topo do card */
+.units__card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  height: calc(10 * var(--u));
+  background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+}
+
+.units__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 781 / 355;
+  object-fit: cover;
+  object-position: center 70%;
+}
+
+.units__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: calc(32 * var(--u));
+}
+
+.units__name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.units__address {
+  margin: 12px 0 0;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.units__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* 32px mínimos até o botão */
+  margin: 20px 0 32px;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+  line-height: 1.3;
+}
+.units__info li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.units__info img { flex-shrink: 0; width: 24px; height: 24px; }
+.units__info a {
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.units__info a:hover { color: var(--color-accent); }
+
+/* fica no pé do card, à direita, mesmo quando os textos têm alturas diferentes */
+.units__maps {
+  align-self: flex-end;
+  margin-top: auto;
+  font-size: 16px;
+}
+
+@media (max-width: 1279.98px) {
+  .units__slider { --per-view: 2; }
+}
+
+@media (max-width: 1023.98px) {
+  .units {
+    gap: 24px;
+    padding: 48px 0;
+  }
+  .units__title { padding: 0 32px; }
+
+  /* cards a 32px da borda da tela, 32px entre eles */
+  .units__slider {
+    align-self: stretch;
+    width: auto;
+    margin: 0 16px;
+    padding-bottom: 26px;
+  }
+  .units__slider .slider__slide { padding: 0 16px; }
+  .units__slider .slider__dots { bottom: 0; }
+
+  .units__card { border-radius: 10px; }
+  .units__card::before { height: 6px; }
+
+  .units__body { padding: 20px; }
+  .units__name { font-size: 20px; }
+  .units__address { margin-top: 8px; font-size: 14px; }
+  .units__info { gap: 8px; margin: 16px 0 24px; font-size: 14px; }
+  .units__info img { width: 20px; height: 20px; }
+}
+
+@media (max-width: 639.98px) {
+  .units__slider { --per-view: 1; }
+}

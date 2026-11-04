@@ -98,9 +98,10 @@ body {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
+/* --per-view: cards por página (snippets/slider.js lê o mesmo valor para contar os dots) */
 .slider__slide {
   position: relative;
-  flex: 0 0 100%;
+  flex: 0 0 calc(100% / var(--per-view, 1));
   overflow: hidden;
   scroll-snap-align: start;
   scroll-snap-stop: always;
