@@ -1,8 +1,6 @@
 import '../assets/section-coverage.css';
 import lines from '../snippets/lines';
 import logo from '../assets/coverage-logo.svg';
-import setaDesktop from '../assets/icon-arrow-desktop.svg';
-import setaMobile from '../assets/icon-arrow-mobile.svg';
 
 export default function Coverage() {
   return (
@@ -16,11 +14,6 @@ export default function Coverage() {
                 'Com mais de 2.500 clínicas próprias e credenciadas em todos os estados,[d] sua empresa agenda exames exatamente onde os colaboradores[d] operam, sem transtornos de deslocamento ou logística complexa.',
             )}
           </p>
-          <a href="#" className="button">
-            Consultar Unidades
-            <img src={setaDesktop.src} alt="" className="button__arrow button__arrow--desktop" />
-            <img src={setaMobile.src} alt="" className="button__arrow button__arrow--mobile" />
-          </a>
         </div>
         <div className="coverage__art" aria-hidden="true">
           <div className="coverage__map">

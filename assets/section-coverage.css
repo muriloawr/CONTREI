@@ -107,7 +107,7 @@
     padding: 0;
   }
 
-  /* título → texto 24px, texto → botão 16px */
+  /* título → texto 24px */
   .coverage__content {
     align-self: stretch;
     gap: 16px;
