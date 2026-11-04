@@ -41,8 +41,9 @@
   position: absolute;
   max-width: none;
 }
-.seals__item--iso27001 .seals__img { width: calc(144 * var(--u)); height: calc(197.647 * var(--u)); }
-.seals__item--iso27001 .seals__img img { left: -1.72%; top: 0; width: 102.94%; height: 100%; }
+/* selo redondo: quadrado um pouco menor que a altura dos outros, para o texto ao lado manter 3 linhas */
+.seals__item--iso27001 .seals__img { width: calc(180 * var(--u)); height: calc(180 * var(--u)); }
+.seals__item--iso27001 .seals__img img { left: 0; top: 0; width: 100%; height: 100%; }
 .seals__item--abresst .seals__img { width: calc(138.75 * var(--u)); height: calc(210 * var(--u)); }
 .seals__item--abresst .seals__img img { left: -14.79%; top: -3.65%; width: 130.75%; height: 100%; }
 .seals__item--iso9001 .seals__img { width: calc(135.75 * var(--u)); height: calc(198.132 * var(--u)); }
@@ -79,7 +80,7 @@
     padding: 0 16px;
   }
 
-  .seals__item--iso27001 .seals__img { width: 86px; height: 118px; }
+  .seals__item--iso27001 .seals__img { width: 118px; height: 118px; }
   .seals__item--abresst .seals__img { width: 82px; height: 125px; }
   .seals__item--iso9001 .seals__img { width: 82px; height: 119px; }
 
