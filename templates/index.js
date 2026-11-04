@@ -1,6 +1,6 @@
 import Hero from '../sections/hero';
 import medica from '../assets/hero-medica.webp';
-import About from '../sections/about';
+// import About from '../sections/about'; // oculta por enquanto
 import Clients from '../sections/clients';
 import Banner from '../sections/banner';
 import Steps from '../sections/steps';
@@ -23,8 +23,8 @@ export default function Index() {
         text="Tecnologia e atendimento exclusivo para a gestão completa de Saúde, Ergonomia e Segurança do Trabalho."
         cta={{ href: '#proposta', label: 'Solicitar Proposta' }}
       />
-      {/* 2. Preencher — por enquanto fica a seção "Referência em Minas Gerais" */}
-      <About />
+      {/* 2. Preencher */}
+      {/* Oculta por enquanto (não está na nova ordem): <About /> — "Referência em Minas Gerais" */}
       {/* 3. Uma clínica credenciada... */}
       <Coverage />
       {/* 4. Preencher */}
