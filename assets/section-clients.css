@@ -32,9 +32,10 @@
 .clients__track {
   display: flex;
   gap: calc(128 * var(--u));
+  /* linha de logos centralizada na tela */
   width: max-content;
-  margin: 0;
-  padding: 0 0 0 calc(64 * var(--u));
+  margin: 0 auto;
+  padding: 0;
   list-style: none;
 }
 
@@ -70,10 +71,10 @@
   }
   .clients__track {
     gap: 64px;
+    margin: 0;
     padding: 0 16px;
   }
   .clients__item { scroll-snap-align: start; }
-  .clients__item--repeat { display: none; }
   .clients__logo {
     width: 153px;
     height: 100px;

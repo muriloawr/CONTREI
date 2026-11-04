@@ -30,10 +30,6 @@ export default function Clients() {
               <Image src={src} alt={alt} sizes="153px" loading="eager" className="clients__logo" />
             </li>
           ))}
-          {/* o Figma desktop repete a Minerva no fim da linha; no slider mobile ela sai */}
-          <li className="clients__item clients__item--repeat" aria-hidden="true">
-            <Image src={minerva} alt="" sizes="153px" loading="eager" className="clients__logo" />
-          </li>
         </ul>
       </div>
     </section>
