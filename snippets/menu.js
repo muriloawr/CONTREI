@@ -1,5 +1,4 @@
 /*
-  Itens do menu do topo (sections/header.js); o rodapé (sections/footer.js) monta as colunas a partir deles.
   Itens do menu. `href`: link direto; `items`: abre um submenu com [rótulo, link].
   Item de submenu sem link (`[rótulo]`) aparece normal, mas ainda não leva a lugar nenhum.
 */
@@ -35,6 +34,3 @@ export const menu = [
     ],
   },
 ];
-
-// atalho para o submenu de um item, pelo rótulo
-export const submenu = (label) => menu.find((m) => m.label === label).items;

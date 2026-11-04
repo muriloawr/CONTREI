@@ -6,9 +6,9 @@ import instagram from '../assets/footer-icon-instagram.svg';
 import linkedin from '../assets/footer-icon-linkedin.svg';
 import vanzak from '../assets/footer-vanzak.svg';
 import socTree from '../assets/footer-soc-tree.webp';
-import { submenu } from '../snippets/menu';
+import { WHATSAPP_URL, external } from '../snippets/whatsapp';
 
-// mesmas seções do menu do topo; itens sem link ([rótulo]) aparecem como texto
+// só o essencial; itens sem link ([rótulo]) aparecem como texto até terem página
 const columns = [
   [
     'Institucional',
@@ -17,19 +17,26 @@ const columns = [
       ['Sobre nós', '#'], // página ainda não existe
       ['Nossas soluções', '/#solucoes'],
       ['Nossas unidades', '/#unidades'],
-      ['Política de Privacidade', '#'],
     ],
   ],
-  ['Contato', submenu('Contato')],
-  ['Já sou cliente', submenu('Já sou cliente')],
+  [
+    'Atendimento',
+    [
+      ['Proposta comercial', WHATSAPP_URL],
+      ['Trabalhe conosco'],
+      ['Ouvidoria'],
+      ['Canal de denúncias'],
+      ['Política de Privacidade'],
+    ],
+  ],
 ];
 
 // no desktop ficam dentro de "Fale Com a Gente"; no mobile, abaixo do acordeão
 function Socials({ className }) {
   return (
     <div className={`footer__socials ${className}`}>
-      <a href="#" aria-label="Instagram"><img src={instagram.src} alt="" /></a>
-      <a href="#" aria-label="LinkedIn"><img src={linkedin.src} alt="" /></a>
+      <a href="https://www.instagram.com/contreioficial/" {...external} aria-label="Instagram da Contrei"><img src={instagram.src} alt="" /></a>
+      <a href="https://www.linkedin.com/company/contrei/" {...external} aria-label="LinkedIn da Contrei"><img src={linkedin.src} alt="" /></a>
     </div>
   );
 }
@@ -50,7 +57,9 @@ export default function Footer() {
                   <summary>{title}</summary>
                   <ul className="footer__list">
                     {links.map(([label, href]) => (
-                      <li key={label}>{href ? <Link href={href}>{label}</Link> : label}</li>
+                      <li key={label}>
+                        {!href ? label : href.startsWith('http') ? <a href={href} {...external}>{label}</a> : <Link href={href}>{label}</Link>}
+                      </li>
                     ))}
                   </ul>
                 </details>
