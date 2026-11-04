@@ -1,0 +1,11 @@
+{
+  // Prévia estática do site no Cloudflare Workers (assets estáticos, sem servidor).
+  // Gere a pasta `out/` com `npm run build:preview` antes do deploy.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "contrei-preview",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}

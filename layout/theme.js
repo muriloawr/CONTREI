@@ -6,7 +6,11 @@ import Footer from '../sections/footer';
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' });
 const dmSans = DM_Sans({ subsets: ['latin'], axes: ['opsz'], variable: '--font-dm-sans' });
 
-export const metadata = { title: 'Contrei' };
+export const metadata = {
+  title: 'Contrei',
+  // Prévia no Cloudflare (PREVIEW=1): não indexar o domínio provisório.
+  ...(process.env.NEXT_PUBLIC_PREVIEW === '1' && { robots: { index: false, follow: false } }),
+};
 
 export default function Theme({ children }) {
   return (
